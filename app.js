@@ -39,7 +39,6 @@ app.post('/api/v1/group', function (req, res) {
 
   function updateGroupData(res, env) {
     if (!res || !res.response.group) {
-      console.log(res);
       return;
     }
 
