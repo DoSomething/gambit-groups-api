@@ -12,7 +12,7 @@ Micro service which handles group generation & provides ID's to messaging servic
 All API requests require the `x-gambit-group-api-key` to be set in the headers.
 
 #### Create a group
-*POST* `/api/v1/group`
+**POST** `/api/v1/group`
 ```
 {
 	"campaign_id": "1112",
@@ -37,7 +37,7 @@ It will then return the id's in the response.
 ```
 
 #### Get a group
-*GET* `/api/v1/group/:campaign_id/:campaign_run_id`
+**GET** `/api/v1/group/:campaign_id/:campaign_run_id`
 
 Retrieves the group for the given campaign ID & campaign run ID.
 
