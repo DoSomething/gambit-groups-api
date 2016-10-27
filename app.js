@@ -5,8 +5,10 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 const util = require('./lib/util');
+const mobilecommons = require('./lib/mobilecommons');
 
 const apiKey = process.env.API_KEY;
+const environments = ['local', 'thor', 'production'];
 
 // API key check
 // app.use()
@@ -26,7 +28,16 @@ app.post('/api/v1/group', function (req, res) {
     return;
   }
 
-  res.send('testse');
+  const campaignId = req.body.campaign_id;
+  const campaignRunId = req.body.campaign_run_id;
+
+  // Check if it exists already in DB
+
+  mobilecommons.createGroup(util.keyGen(campaignId, campaignRunId))
+  .then(mc => {
+    console.log(mc);
+    res.send(mc);
+  })
 });
 
 const port = process.env.PORT;
