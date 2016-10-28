@@ -25,13 +25,22 @@ It will then return the id's in the response.
 
 ```
 {
-  "campaign_id": 1112,
-  "campaign_run_id": 23343212,
-  "_id": "58125db53938a0125414dec6",
+  "campaign_id": 1243245,
+  "campaign_run_id": 1243242423,
+  "_id": "58136e604545e6189d103b37",
   "mobilecommons_groups": {
-    "production": 257104,
-    "thor": 257101,
-    "local": 257098
+    "production": {
+      "completed": 257533,
+      "doing": 257530
+    },
+    "thor": {
+      "completed": 257527,
+      "doing": 257524
+    },
+    "local": {
+      "completed": 257521,
+      "doing": 257518
+    }
   }
 }
 ```
@@ -43,14 +52,22 @@ Retrieves the group for the given campaign ID & campaign run ID.
 
 ```
 {
-  "_id": "58125db53938a0125414dec6",
-  "campaign_id": 1112,
-  "campaign_run_id": 23343212,
-  "__v": 0,
+  "campaign_id": 1243245,
+  "campaign_run_id": 1243242423,
+  "_id": "58136e604545e6189d103b37",
   "mobilecommons_groups": {
-    "production": 257104,
-    "thor": 257101,
-    "local": 257098
+    "production": {
+      "completed": 257533,
+      "doing": 257530
+    },
+    "thor": {
+      "completed": 257527,
+      "doing": 257524
+    },
+    "local": {
+      "completed": 257521,
+      "doing": 257518
+    }
   }
 }
 ```
