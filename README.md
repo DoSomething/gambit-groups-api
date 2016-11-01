@@ -9,7 +9,7 @@ Micro service which handles group generation & provides ID's to messaging servic
 `heroku local`
 
 ## API
-All API requests require the `x-gambit-group-api-key` to be set in the headers.
+All API requests require the `x-messaging-group-api-key` to be set in the headers.
 
 #### Create a group
 **POST** `/api/v1/group`
