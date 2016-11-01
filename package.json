@@ -1,5 +1,5 @@
 {
-  "name": "gambit-groups-api",
+  "name": "messaging-groups-api",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DoSomething/gambit-groups-api.git"
+    "url": "git+https://github.com/DoSomething/messaging-groups-api.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DoSomething/gambit-groups-api/issues"
+    "url": "https://github.com/DoSomething/messaging-groups-api/issues"
   },
-  "homepage": "https://github.com/DoSomething/gambit-groups-api#readme",
+  "homepage": "https://github.com/DoSomething/messaging-groups-api#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
