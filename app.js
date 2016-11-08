@@ -12,3 +12,5 @@ const port = process.env.PORT;
 app.listen(port, function () {
   console.log(`Messaging Groups API listening on port ${port}`);
 });
+
+module.exports = app;
