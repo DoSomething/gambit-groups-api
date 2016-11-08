@@ -73,10 +73,6 @@ describe('api get group', function() {
 });
 
 describe('api post group', function() {
-  // does it work for valid id's
-  // does it work for duplicates
-  // does it work for not given
-
   const campaignId = Math.random() * 10000000;
   const campaignRunId = campaignId + 1;
 
