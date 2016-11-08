@@ -56,6 +56,7 @@ describe('api get group', function() {
         if (err) return done(err);
         assert(res.body._id);
         assert(res.body.campaign_id === 10);
+        assert(res.body.campaign_run_id === 20);
         assert(res.body.mobilecommons_groups.production.completed);
         assert(res.body.mobilecommons_groups.thor.doing);
         assert(res.body.mobilecommons_groups.local.completed);
