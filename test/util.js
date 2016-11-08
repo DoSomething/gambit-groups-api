@@ -21,16 +21,3 @@ describe('key generation', function () {
    assert(util.groupKeyGen(10, 11, 'local', 'doing') === 'campaign_id=10 run_id=11 field=doing env=local');
  });
 });
-
-describe('validate api key', function () {
-  it ('should validate a real api key', function () {
-    const headers = {'x-messaging-group-api-key': process.env.API_KEY};
-    assert(util.validateApiKey(headers) === true);
-  });
-
-  it ('should not validate a fake api key', function () {
-    const headers = {'x-messaging-group-api-key': 'foobar'};
-    assert(util.validateApiKey(headers) === false);
-    assert(util.validateApiKey(undefined) === false);
-  });
-});
