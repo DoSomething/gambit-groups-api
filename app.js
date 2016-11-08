@@ -10,7 +10,7 @@ app.use('/api/v1', apiRouter);
 
 const port = process.env.PORT;
 app.listen(port, function () {
-  console.log(`Gambit Group API listening on port ${port}`);
+  console.log(`Messaging Groups API listening on port ${port}`);
 });
 
 module.exports = app;
