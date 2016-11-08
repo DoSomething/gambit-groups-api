@@ -84,7 +84,16 @@ describe('api post group', function() {
       .set('x-gambit-group-api-key', process.env.API_KEY)
       .send({campaign_id: campaignId, campaign_run_id: campaignRunId})
       .expect('Content-Type', /json/)
-      .expect(200, done);
+      .end(function(err, res) {
+        if (err) return done(err);
+        assert(res.body._id);
+        assert(res.body.campaign_id === campaignId);
+        assert(res.body.campaign_run_id === campaignRunId);
+        assert(res.body.mobilecommons_groups.production.completed);
+        assert(res.body.mobilecommons_groups.thor.doing);
+        assert(res.body.mobilecommons_groups.local.completed);
+        done();
+      });
   }).timeout(5000);
 
   it ('should not create a group for the duplicate campaign id & run id', function(done) {
