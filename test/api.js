@@ -10,7 +10,7 @@ describe('api access', function() {
     request(app)
       .get('/api/v1/')
       .set('Accept', 'application/json')
-      .set('x-gambit-group-api-key', process.env.API_KEY)
+      .set('x-messaging-group-api-key', process.env.API_KEY)
       .expect('Content-Type', /json/)
       .expect(200, done);
   });
@@ -19,7 +19,7 @@ describe('api access', function() {
     request(app)
       .get('/api/v1/')
       .set('Accept', 'application/json')
-      .set('x-gambit-group-api-key', 'nope')
+      .set('x-messaging-group-api-key', 'nope')
       .expect(403, done);
   });
 });
@@ -50,7 +50,7 @@ describe('api get group', function() {
     request(app)
       .get('/api/v1/group/10/20')
       .set('Accept', 'application/json')
-      .set('x-gambit-group-api-key', process.env.API_KEY)
+      .set('x-messaging-group-api-key', process.env.API_KEY)
       .expect('Content-Type', /json/)
       .end(function(err, res) {
         if (err) return done(err);
@@ -68,7 +68,7 @@ describe('api get group', function() {
     request(app)
       .get('/api/v1/group/-1/-2')
       .set('Accept', 'application/json')
-      .set('x-gambit-group-api-key', process.env.API_KEY)
+      .set('x-messaging-group-api-key', process.env.API_KEY)
       .expect(404, done);
   });
 });
@@ -81,7 +81,7 @@ describe('api post group', function() {
     request(app)
       .post('/api/v1/group')
       .set('Accept', 'application/json')
-      .set('x-gambit-group-api-key', process.env.API_KEY)
+      .set('x-messaging-group-api-key', process.env.API_KEY)
       .send({campaign_id: campaignId, campaign_run_id: campaignRunId})
       .expect('Content-Type', /json/)
       .end(function(err, res) {
@@ -100,7 +100,7 @@ describe('api post group', function() {
     request(app)
       .post('/api/v1/group')
       .set('Accept', 'application/json')
-      .set('x-gambit-group-api-key', process.env.API_KEY)
+      .set('x-messaging-group-api-key', process.env.API_KEY)
       .send({campaign_id: campaignId, campaign_run_id: campaignRunId})
       .expect(400, done);
   });
@@ -109,7 +109,7 @@ describe('api post group', function() {
     request(app)
       .post('/api/v1/group')
       .set('Accept', 'application/json')
-      .set('x-gambit-group-api-key', process.env.API_KEY)
+      .set('x-messaging-group-api-key', process.env.API_KEY)
       .send({campaign_id: campaignId})
       .expect(400, done);
   });
