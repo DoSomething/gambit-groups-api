@@ -1,6 +1,6 @@
 {
   "name": "messaging-groups-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "app.js",
   "scripts": {
@@ -10,8 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/DoSomething/messaging-groups-api.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "DoSomething.org",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/DoSomething/messaging-groups-api/issues"
   },
@@ -21,8 +21,10 @@
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "mongoose": "^4.6.5",
+    "newrelic": "^1.38.2",
     "superagent": "^2.3.0",
     "superagent-as-promised": "^4.0.0",
+    "winston": "^2.3.1",
     "xml2js": "^0.4.17",
     "xml2js-es6-promise": "^1.1.1"
   },
