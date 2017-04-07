@@ -1,10 +1,11 @@
 {
   "name": "messaging-groups-api",
   "version": "1.1.0",
-  "description": "",
+  "description": "A DoSomething.org microservice to find and create Mobile Commons Groups",
   "main": "app.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "lint": "eslint --ext=.js app.js config lib"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "xml2js-es6-promise": "^1.1.1"
   },
   "devDependencies": {
+    "@dosomething/eslint-config": "^2.0.0",
     "supertest": "^2.0.1"
   }
 }
