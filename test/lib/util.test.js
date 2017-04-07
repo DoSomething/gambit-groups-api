@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const util = require('../lib/util');
+const util = require('../../lib/util');
 
 describe('validation', () => {
   it('should validate a field in the container', () => {
