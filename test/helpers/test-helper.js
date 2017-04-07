@@ -9,27 +9,39 @@ module.exports = {
   },
 
   getEnvironmentName() {
-    return 'name';
+    return 'thor';
   },
 
   getExistingCampaignRunId() {
     return 211;
   },
 
-  getExistingGroupId() {
+  getExistingCompletedGroupId() {
+    return 811920;
+  },
+
+  getExistingCompletedGroupName() {
+    return this.getGroupName(this.getExistingCampaignRunId(), 'completed');
+  },
+
+  getExistingDoingGroupId() {
     return 811919;
+  },
+
+  getExistingDoingGroupName() {
+    return this.getGroupName(this.getExistingCampaignRunId(), 'doing');
   },
 
   getFieldName() {
     return 'doing';
   },
 
-  getGroupName(campaignId) {
-    const name = util.groupKeyGen(campaignId,
-                                  this.getExistingCampaignRunId(),
-                                  this.getFieldName(),
-                                  this.getEnvironmentName(),
-                                  );
+  getGroupName(campaignRunId, fieldName) {
+    const name = util.groupKeyGen(this.getCampaignId(),
+                                  campaignRunId,
+                                  fieldName,
+                                  this.getEnvironmentName());
+
     return name;
   },
 
@@ -39,6 +51,10 @@ module.exports = {
 
   getNewGroupId() {
     return 22211919;
+  },
+
+  getNonExistingGroupName() {
+    return 'pupp3t sl0th';
   },
 
 };

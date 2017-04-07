@@ -3,12 +3,13 @@
 require('dotenv').config();
 
 const request = require('supertest');
+const helper = require('../helpers/test-helper');
 const app = require('../../app');
 
 const query = ({
-  campaign_id: 2273,
-  campaign_run_id: 6431,
-  environment: 'thor',
+  campaign_id: helper.getCampaignId(),
+  campaign_run_id: helper.getExistingCampaignRunId(),
+  environment: helper.getEnvironmentName(),
 });
 const apiPath = '/api/v1/mobilecommons-groups/';
 
