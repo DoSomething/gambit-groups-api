@@ -20,8 +20,7 @@ logger.configure({
 });
 
 const apiRouter = express.Router();
-// TODO: How to fix for eslint?
-const api = require('./lib/routes/api')(apiRouter); // eslint-disable-line no-unused-vars
+require('./lib/routes/api')(apiRouter);
 
 app.use('/api/v1', apiRouter);
 
