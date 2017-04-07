@@ -4,7 +4,7 @@
   "description": "A DoSomething.org microservice to find and create Mobile Commons Groups",
   "main": "app.js",
   "scripts": {
-    "test": "npm run lint",
+    "test": "npm run lint && mocha",
     "lint": "eslint --ext=.js app.js config lib"
   },
   "repository": {
@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@dosomething/eslint-config": "^2.0.0",
+    "mocha": "^3.2.0",
     "supertest": "^2.0.1"
   }
 }
