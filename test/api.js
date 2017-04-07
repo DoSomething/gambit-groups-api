@@ -3,11 +3,18 @@ require('dotenv').config();
 const assert = require('assert');
 const request = require('supertest');
 const app = require('../app');
+const query = ({
+  campaign_id: 2273,
+  campaign_run_id: 6431,
+  environment: 'thor', 
+});
+const apiPath = '/api/v1/mobilecommons-groups/';
 
 describe('api access', function() {
   it ('should allow a valid api key', function(done) {
     request(app)
-      .get('/api/v1/')
+      .get(apiPath)
+      .query(query)
       .set('Accept', 'application/json')
       .set('x-messaging-group-api-key', process.env.API_KEY)
       .expect('Content-Type', /json/)
@@ -16,7 +23,8 @@ describe('api access', function() {
 
   it ('should not allow an invalid api key', function(done) {
     request(app)
-      .get('/api/v1/')
+      .get(apiPath)
+      .query(query)
       .set('Accept', 'application/json')
       .set('x-messaging-group-api-key', 'nope')
       .expect(403, done);
