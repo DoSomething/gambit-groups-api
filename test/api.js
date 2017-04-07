@@ -1,17 +1,19 @@
+'use strict';
+
 require('dotenv').config();
 
-const assert = require('assert');
 const request = require('supertest');
 const app = require('../app');
+
 const query = ({
   campaign_id: 2273,
   campaign_run_id: 6431,
-  environment: 'thor', 
+  environment: 'thor',
 });
 const apiPath = '/api/v1/mobilecommons-groups/';
 
-describe('api access', function() {
-  it ('should allow a valid api key', function(done) {
+describe('api access', () => {
+  it('should allow a valid api key', (done) => {
     request(app)
       .get(apiPath)
       .query(query)
@@ -21,7 +23,7 @@ describe('api access', function() {
       .expect(200, done);
   });
 
-  it ('should not allow an invalid api key', function(done) {
+  it('should not allow an invalid api key', (done) => {
     request(app)
       .get(apiPath)
       .query(query)
@@ -29,4 +31,5 @@ describe('api access', function() {
       .set('x-messaging-group-api-key', 'nope')
       .expect(403, done);
   });
+  // TODO: Add tests for 422, missing query params.
 });

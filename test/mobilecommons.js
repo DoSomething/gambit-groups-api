@@ -1,7 +1,8 @@
+'use strict';
+
 require('dotenv').config();
 
-const assert = require('assert');
-const mc = require('../lib/mobilecommons');
+// const mc = require('../lib/mobilecommons');
 
 /*
 TODO: Revisit
