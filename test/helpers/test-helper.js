@@ -1,60 +1,41 @@
 'use strict';
 
-const util = require('../../lib/util');
+const nock = require('nock');
+
+const mcApi = nock('https://secure.mcommons.com/api');
 
 module.exports = {
 
-  getCampaignId() {
-    return 7;
+  getExistingGroup(groupName) {
+    const group = {
+      status: 'active',
+      size: Math.random() * 5000,
+      name: groupName,
+      id: (Math.random() * 500) + 1,
+    };
+
+    return group;
   },
 
-  getEnvironmentName() {
-    return 'thor';
+  getExistingGroupXml(group) {
+    return '<response success="true"><groups>' +
+      `  <group id="${group.id}" type="UploadedGroup" status="${group.status}">` +
+      `    <name>${group.name}</name>` +
+      `    <size>${group.size}</size>` +
+      '  </group>' +
+      '</groups></response>';
   },
 
-  getExistingCampaignRunId() {
-    return 211;
+  nockGetExistingGroup(group) {
+    mcApi
+      .get(`/groups?group_name=${encodeURIComponent(group.name)}`)
+      .reply(200, this.getExistingGroupXml(group));
   },
 
-  getExistingCompletedGroupId() {
-    return 811920;
-  },
-
-  getExistingCompletedGroupName() {
-    return this.getGroupName(this.getExistingCampaignRunId(), 'completed');
-  },
-
-  getExistingDoingGroupId() {
-    return 811919;
-  },
-
-  getExistingDoingGroupName() {
-    return this.getGroupName(this.getExistingCampaignRunId(), 'doing');
-  },
-
-  getFieldName() {
-    return 'doing';
-  },
-
-  getGroupName(campaignRunId, fieldName) {
-    const name = util.groupKeyGen(this.getCampaignId(),
-                                  campaignRunId,
-                                  fieldName,
-                                  this.getEnvironmentName());
-
-    return name;
-  },
-
-  getNewCampaignRunId() {
-    return 311;
-  },
-
-  getNewGroupId() {
-    return 22211919;
-  },
-
-  getNonExistingGroupName() {
-    return 'pupp3t sl0th';
+  nockGetNotFoundGroup(groupName) {
+    mcApi
+      .get(`/groups?group_name=${encodeURIComponent(groupName)}`)
+      .reply(200, '<response success="true"><groups></groups></response>');
   },
 
 };

@@ -1,28 +1,26 @@
 'use strict';
 
+const should = require('should');
 require('dotenv').config();
-
-const assert = require('assert');
 const mobilecommons = require('../../lib/mobilecommons');
 const helper = require('../helpers/test-helper');
 
 describe('/lib/mobilecommons', () => {
   describe('#getGroup', () => {
-    it('should return an object when groupName found', () => {
-      const name = helper.getExistingDoingGroupName('doing');
-      mobilecommons.getGroup(name).then((res) => {
-        assert(typeof res === 'object');
-        assert(res.id === helper.getExistingDoingGroupId());
-        assert(res.name === name);
-        assert(res.status === 'active');
-        assert(res.size === 0);
-      });
+    it('should parse XML and return an object when group_name found', () => {
+      const groupName = `random group for campaign_id=${((Math.random() * 200) + 1)}`;
+      const group = helper.getExistingGroup(groupName);
+      helper.nockGetExistingGroup(group);
+
+      return mobilecommons
+        .getGroup(group.name)
+        .then(response => response.should.match(group));
     });
-    it('should return an error when groupName not found', () => {
-      const name = helper.getNonExistingGroupName();
-      mobilecommons.getGroup(name)
-        .then(res => assert(res instanceof Error))
-        .catch(err => assert(err.message === 'Group not found'));
+    it('should throw an error when group_name not found', () => {
+      const groupName = 'pupp3th sl0th 4evr';
+      helper.nockGetNotFoundGroup(groupName);
+
+      should.throws(mobilecommons.getGroup(groupName));
     });
   });
 });
