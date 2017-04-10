@@ -2,6 +2,7 @@
   extends: "@dosomething/eslint-config"
   env:
     es6: true
+    mocha: true
   globals:
     app: true
   parserOptions:
