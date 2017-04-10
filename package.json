@@ -1,10 +1,11 @@
 {
   "name": "messaging-groups-api",
-  "version": "1.1.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "A DoSomething.org microservice to find and create Mobile Commons Groups",
   "main": "app.js",
   "scripts": {
-    "test": "mocha"
+    "test": "npm run lint && mocha",
+    "lint": "eslint --ext=.js app.js config lib test"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,6 @@
     "body-parser": "^1.15.2",
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
-    "mongoose": "^4.6.5",
     "newrelic": "^1.38.2",
     "superagent": "^2.3.0",
     "superagent-as-promised": "^4.0.0",
@@ -29,6 +29,10 @@
     "xml2js-es6-promise": "^1.1.1"
   },
   "devDependencies": {
+    "@dosomething/eslint-config": "^2.0.0",
+    "mocha": "^3.2.0",
+    "nock": "^9.0.11",
+    "should": "^11.2.1",
     "supertest": "^2.0.1"
   }
 }
