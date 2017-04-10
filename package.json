@@ -1,6 +1,6 @@
 {
   "name": "messaging-groups-api",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "A DoSomething.org microservice to find and create Mobile Commons Groups",
   "main": "app.js",
   "scripts": {
